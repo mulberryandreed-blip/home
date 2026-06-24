@@ -1,0 +1,123 @@
+/* ============================================================
+   بوست Post — Design tokens
+   River Blue is the spine. Neutrals are cool, inky.
+   Two golden rules: Pill Shape Always · Frosted Glass Always.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---- River Blue — the brand spine (Tigris & Euphrates) ---- */
+  --blue-50:  #F4F7FF;
+  --blue-100: #E5ECFF;
+  --blue-200: #C6D5FF;
+  --blue-300: #9AB4FF;
+  --blue-400: #6E93FF;
+  --blue-500: #2856FF;   /* River Blue — primary */
+  --blue-600: #1C46E6;
+  --blue-700: #1638B8;
+  --blue-800: #102A8A;
+  --blue-900: #091B5C;
+  --blue-950: #050D30;
+
+  /* ---- Neutrals — cool, riverbed dark to paper ---- */
+  --ink:       #0D1117;
+  --charcoal:  #1D232F;
+  --steel:     #4A5568;
+  --stone:     #8B96A8;
+  --mist:      #DCE2EC;
+  --paper:     #F7F8FA;
+  --white:     #FFFFFF;
+
+  /* ---- Earth — used sparingly ---- */
+  --river-sand: #D8C4A5;
+  --copper:     #B8742A;
+  --date-palm:  #647048;
+
+  /* ---- Semantic: text ---- */
+  --text-primary:   var(--ink);
+  --text-secondary: var(--steel);
+  --text-muted:     var(--stone);
+  --text-inverse:   var(--white);
+  --text-brand:     var(--blue-500);
+  --text-on-brand:  var(--white);
+
+  /* ---- Semantic: surfaces ---- */
+  --surface-page:  var(--paper);
+  --surface-card:  var(--white);
+  --surface-ink:   var(--ink);
+
+  /* ---- Semantic: borders ---- */
+  --border-hairline: var(--mist);
+  --border-glass:    rgba(255, 255, 255, 0.55);
+
+  /* ---- Brand interaction states ---- */
+  --brand-default: var(--blue-500);
+  --brand-hover:   var(--blue-600);
+  --brand-active:  var(--blue-700);
+  --status-danger: #C0392B;
+
+  /* ---- Glass tints ---- */
+  --glass-fill-light: rgba(255, 255, 255, 0.62);
+  --glass-fill-dark:  rgba(13, 17, 23, 0.45);
+  --glass-border:      rgba(255, 255, 255, 0.65);
+  --glass-border-dark: rgba(255, 255, 255, 0.12);
+  --glass-backdrop: saturate(1.4) blur(18px);
+
+  --focus-ring: rgba(40, 86, 255, 0.40);
+
+  /* ---- Radii — PILL IS THE DEFAULT ---- */
+  --radius-pill: 999px;
+  --radius-card: 24px;
+  --radius-md:   16px;
+  --radius-sm:   10px;
+
+  /* ---- Shadows — soft, water-diffused ---- */
+  --shadow-xs:    0 1px 2px rgba(9, 27, 92, 0.06);
+  --shadow-sm:    0 2px 8px rgba(9, 27, 92, 0.07);
+  --shadow-md:    0 8px 24px rgba(9, 27, 92, 0.09);
+  --shadow-lg:    0 16px 48px rgba(9, 27, 92, 0.12);
+  --shadow-glass: 0 8px 32px rgba(9, 27, 92, 0.14), inset 0 1px 0 rgba(255,255,255,0.45);
+  --shadow-brand: 0 8px 24px rgba(40, 86, 255, 0.28);
+
+  /* ---- Motion — calm, never bouncy ---- */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 420ms;
+  --press-scale: 0.98;
+
+  /* ---- Type ---- */
+  --font-display: 'Alexandria', 'Segoe UI', Tahoma, sans-serif;
+  --font-body:    'Alexandria', 'Segoe UI', Tahoma, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --text-display: clamp(2.75rem, 1.6rem + 4.6vw, 4.5rem);
+  --text-h1:      clamp(2.1rem, 1.5rem + 2.6vw, 3.1rem);
+  --text-h2:      clamp(1.6rem, 1.25rem + 1.6vw, 2.25rem);
+  --text-h3:      clamp(1.3rem, 1.15rem + 0.8vw, 1.6rem);
+  --text-h4:      1.15rem;
+  --text-lead:    clamp(1.1rem, 1.02rem + 0.4vw, 1.35rem);
+  --text-body:    1rem;
+  --text-small:   0.875rem;
+  --text-caption: 0.75rem;
+
+  --leading-tight:  1.15;
+  --leading-snug:   1.34;
+  --leading-normal: 1.6;
+
+  --tracking-tight: -0.01em;
+
+  /* ---- Layout ---- */
+  --container-lg: 1120px;
+  --container-xl: 1320px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+}

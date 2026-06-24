@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mesweda — Access</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="auth-body">
+  <main class="auth-shell">
+    <div class="auth-card glass-card">
+      <div class="chip">Mesweda</div>
+      <h1 class="auth-title">Restricted access</h1>
+      <p class="auth-sub">Enter the access code to view the project workspace.</p>
+      <form id="login-form" class="auth-form" autocomplete="off">
+        <label for="code" class="auth-label">Access code</label>
+        <input id="code" name="code" type="password" class="auth-input" placeholder="••••••••" required />
+        <button type="submit" class="btn-primary">Enter workspace</button>
+        <p id="error" class="auth-error" hidden>Incorrect access code.</p>
+      </form>
+      <p class="auth-foot">Private preview · invite only</p>
+    </div>
+  </main>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

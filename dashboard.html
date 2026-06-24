@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mesweda — Workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="dash-header">
+    <div class="dash-header-inner">
+      <div class="brand">
+        <div class="brand-mark">M</div>
+        <div>
+          <div class="brand-name">Mesweda</div>
+          <div class="brand-sub">Project workspace</div>
+        </div>
+      </div>
+      <button id="logout" class="btn-ghost">Log out</button>
+    </div>
+  </header>
+
+  <main class="dash-main">
+    <section class="dash-hero">
+      <div class="chip">Workspace</div>
+      <h1 class="section-title">Projects</h1>
+      <p class="dash-lede">A live index of landing pages, campaigns and concepts in development.</p>
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search by name, category or status…" class="search-input" />
+      </div>
+    </section>
+
+    <section id="projects" class="projects-grid"></section>
+    <p id="empty" class="empty-state" hidden>No projects match your search.</p>
+  </main>
+
+  <footer class="dash-footer">© <span id="year"></span> Mesweda · private workspace</footer>
+
+  <script src="projects.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

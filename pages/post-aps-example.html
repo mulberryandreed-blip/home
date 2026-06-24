@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APS Client Database Example · Post</title>
+<meta name="description" content="A demonstration of how Post manages client information, project allocation, task assignment, documentation, and reporting.">
+<script>
+  if (localStorage.getItem("meswedaAccess") !== "granted") {
+    window.location.href = "../login.html";
+  }
+</script>
+<link rel="stylesheet" href="../assets/post/css/tokens.css">
+<link rel="stylesheet" href="../assets/post/css/main.css">
+<link rel="stylesheet" href="../assets/post/css/aps-example.css">
+</head>
+<body class="aps-page">
+
+<nav class="breadcrumb">
+  <a href="../dashboard.html" class="breadcrumb__link">Dashboard</a>
+  <span class="breadcrumb__sep">→</span>
+  <a href="post.html" class="breadcrumb__link">Post</a>
+  <span class="breadcrumb__sep">→</span>
+  <span class="breadcrumb__current">APS Example</span>
+</nav>
+
+<header class="aps-header">
+  <span class="badge badge--brand">Example · Static demo</span>
+  <h1>APS Client Database Example</h1>
+  <p class="aps-header__lead">
+    This page demonstrates how a Post client record could be stored, organised, reviewed, and managed within the platform.
+    APS is used as an example client.
+  </p>
+
+  <div class="aps-client">
+    <div class="aps-client__avatar">A</div>
+    <div>
+      <h2 class="aps-client__name">Arab Payment Services (APS)</h2>
+      <p class="aps-client__name-ar">شركة العرب للدفع الإلكتروني</p>
+    </div>
+  </div>
+
+  <ul class="aps-overview" style="margin-top:22px;">
+    <li>Iraqi company established in 2013</li>
+    <li>Licensed by the Central Bank of Iraq as an electronic payment service provider</li>
+    <li>One of the first Iraqi electronic payment companies</li>
+    <li>Specialises in payment processing for merchants, ministries, and banks</li>
+  </ul>
+
+  <span class="aps-demo-note">No backend · No database · Static demo only</span>
+</header>
+
+<!-- Section 1: Client Profile -->
+<section class="aps-section">
+  <div class="aps-section__head">
+    <span class="aps-section__num">01</span>
+    <h3 class="aps-section__title">Client Profile</h3>
+  </div>
+  <div class="card card--solid card--pad-lg">
+    <div class="profile-grid">
+      <div class="profile-field">
+        <span class="profile-field__label">Client Name</span>
+        <span class="profile-field__value">Arab Payment Services (APS)</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-field__label">Industry</span>
+        <span class="profile-field__value">Electronic Payment Services</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-field__label">Website</span>
+        <span class="profile-field__value profile-field__value--muted">www.example.com</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-field__label">Status</span>
+        <span class="status-pill status-pill--progress">Active</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-field__label">Account Owner</span>
+        <span class="profile-field__value">Post Client Success Team</span>
+      </div>
+      <div class="profile-field">
+        <span class="profile-field__label">Last Updated</span>
+        <span class="profile-field__value profile-field__value--muted">18 June</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: Uploaded Information -->
+<section class="aps-section">
+  <div class="aps-section__head">
+    <span class="aps-section__num">02</span>
+    <h3 class="aps-section__title">Uploaded Information</h3>
+  </div>
+  <div class="card card--solid card--pad-lg">
+    <div class="upload-zone">
+      <span class="upload-zone__hint">Files attached to this client record — static demo only.</span>
+      <div class="upload-list">
+        <span class="upload-chip"><span class="upload-chip__icon">📄</span>Company Profile.pdf</span>
+        <span class="upload-chip"><span class="upload-chip__icon">📝</span>Meeting Notes.docx</span>
+        <span class="upload-chip"><span class="upload-chip__icon">📄</span>Proposal.pdf</span>
+        <span class="upload-chip"><span class="upload-chip__icon">🗂️</span>Brand Assets.zip</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Formatted Database Record -->
+<section class="aps-section">
+  <div class="aps-section__head">
+    <span class="aps-section__num">03</span>
+    <h3 class="aps-section__title">Formatted Database Record</h3>
+  </div>
+  <div class="card card--solid card--pad-lg">
+    <div class="record-grid">
+      <div class="record-block">
+        <span class="record-block__label">Company Summary</span>
+        <p class="record-block__text">Iraqi electronic payment service provider established in 2013, licensed by the Central Bank of Iraq. One of the first companies of its kind in Iraq, processing payments for merchants, ministries, and banks.</p>
+      </div>
+      <div class="record-block">
+        <span class="record-block__label">Key Contacts</span>
+        <p class="record-block__text">Operations Director — primary point of contact</p>
+        <p class="record-block__text">Marketing Lead — campaign &amp; brand coordination</p>
+      </div>
+      <div class="record-block">
+        <span class="record-block__label">Products &amp; Services</span>
+        <p class="record-block__text">Merchant payment processing, ministry &amp; bank integrations, electronic payment infrastructure.</p>
+      </div>
+      <div class="record-block">
+        <span class="record-block__label">Opportunities</span>
+        <p class="record-block__text">Brand refresh, website overhaul, long-term retainer covering strategy and campaigns.</p>
+      </div>
+      <div class="record-block">
+        <span class="record-block__label">Risks</span>
+        <p class="record-block__text">Regulated industry — all messaging requires Central Bank compliance review before publishing.</p>
+      </div>
+      <div class="record-block">
+        <span class="record-block__label">Notes</span>
+        <p class="record-block__text">Discovery call completed; CRM review currently being scheduled.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Task Assignment -->
+<section class="aps-section">
+  <div class="aps-section__head">
+    <span class="aps-section__num">04</span>
+    <h3 class="aps-section__title">Task Assignment</h3>
+  </div>
+  <div class="task-list">
+    <div class="card card--solid task-item">
+      <div class="task-item__main">
+        <span class="task-item__title">Review APS website</span>
+        <span class="task-item__assignee">Assigned to · Marketing Team</span>
+      </div>
+      <span class="status-pill status-pill--progress">In Progress</span>
+    </div>
+    <div class="card card--solid task-item">
+      <div class="task-item__main">
+        <span class="task-item__title">Prepare CRM migration proposal</span>
+        <span class="task-item__assignee">Assigned to · Operations Team</span>
+      </div>
+      <span class="status-pill status-pill--pending">Pending</span>
+    </div>
+    <div class="card card--solid task-item">
+      <div class="task-item__main">
+        <span class="task-item__title">Conduct stakeholder interviews</span>
+        <span class="task-item__assignee">Assigned to · Research Team</span>
+      </div>
+      <span class="status-pill status-pill--scheduled">Scheduled</span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Project Allocation -->
+<section class="aps-section">
+  <div class="aps-section__head">
+    <span class="aps-section__num">05</span>
+    <h3 class="aps-section__title">Project Allocation</h3>
+  </div>
+  <div class="card card--solid card--pad-lg aps-allocate">
+    <label class="field">
+      <span class="field__label">Assign to Project</span>
+      <span class="select-wrap">
+        <select disabled>
+          <option>Post Retainer</option>
+          <option>Website Audit</option>
+          <option>CRM Transformation</option>
+          <option>Research Project</option>
+        </select>
+        <span class="chevron">▾</span>
+      </span>
+    </label>
+    <span class="aps-demo-note" style="margin-top:16px;">Static demo only — selection is not saved</span>
+  </div>
+</section>
+
+<!-- Section 6: Activity Timeline -->
+<section class="aps-section">
+  <div class="aps-section__head">
+    <span class="aps-section__num">06</span>
+    <h3 class="aps-section__title">Activity Timeline</h3>
+  </div>
+  <div class="card card--solid card--pad-lg">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-item__rail"><span class="timeline-item__dot"></span><span class="timeline-item__line"></span></div>
+        <span class="timeline-item__date">12 June</span>
+        <span class="timeline-item__text">Client added</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item__rail"><span class="timeline-item__dot"></span><span class="timeline-item__line"></span></div>
+        <span class="timeline-item__date">14 June</span>
+        <span class="timeline-item__text">Proposal uploaded</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item__rail"><span class="timeline-item__dot"></span><span class="timeline-item__line"></span></div>
+        <span class="timeline-item__date">16 June</span>
+        <span class="timeline-item__text">Discovery call completed</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item__rail"><span class="timeline-item__dot"></span></div>
+        <span class="timeline-item__date">18 June</span>
+        <span class="timeline-item__text">CRM review scheduled</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7: Next Actions -->
+<section class="aps-section">
+  <div class="aps-section__head">
+    <span class="aps-section__num">07</span>
+    <h3 class="aps-section__title">Next Actions</h3>
+  </div>
+  <div class="card card--solid card--pad-lg">
+    <div class="checklist">
+      <label class="checklist-item"><span class="checklist-item__box"></span>Website review</label>
+      <label class="checklist-item"><span class="checklist-item__box"></span>Competitor analysis</label>
+      <label class="checklist-item"><span class="checklist-item__box"></span>CRM proposal</label>
+      <label class="checklist-item"><span class="checklist-item__box"></span>Follow-up meeting</label>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

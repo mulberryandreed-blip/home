@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!--
+  وجهات — زمالة صانع محتوى السفر / Travel Storyteller Fellowship
+  Page slug suggestion: /storyteller-fellowship   (built for wijhat.com.iq)
+  Single self-contained file. All copy is editable directly in the HTML below.
+  The form is front-end only — see the comments marked  «اربط الباك-إند هنا»  for where to connect submission + uploads.
+-->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>زمالة صانع محتوى السفر — وجهات</title>
+<meta name="description" content="فرصة مدفوعة لمدة 3 أشهر مع وجهات. إحنا نبحث عن شخص واحد فقط. قدّم الآن بدون CV." />
+
+<script>
+  if (localStorage.getItem("meswedaAccess") !== "granted") {
+    window.location.href = "../login.html";
+  }
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* Brand gradient (from the Wijhat logo): sky → royal → deep navy */
+  --sky:#00AAFF;
+  --royal:#2D37BA;
+  --navy:#0A0D33;
+  --grad:linear-gradient(105deg,#00AAFF 0%,#2D37BA 52%,#0A0D33 100%);
+  --grad-soft:linear-gradient(105deg,#3FC0FF,#5560D6 60%,#1A2150);
+  /* Warm premium neutrals */
+  --gold:#C9A24B;
+  --gold-deep:#9E7A2E;
+  --paper:#FBF8F2;
+  --sand:#F1E9D9;
+  --sand-2:#EAE0CC;
+  --ink:#0A0D33;
+  --muted:#5C6178;
+  --line:rgba(10,13,51,.10);
+  /* glass */
+  --glass-light:rgba(255,255,255,.62);
+  --glass-dark:rgba(255,255,255,.08);
+  --display:"Tajawal", system-ui, sans-serif;
+  --body:"IBM Plex Sans Arabic", system-ui, sans-serif;
+  --latin:"Sora", system-ui, sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --r-pill:999px;
+  --r-card:28px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  font-family:var(--body); color:var(--ink); background:var(--paper);
+  line-height:1.85; overflow-x:hidden; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+body.lock{ overflow:hidden; }
+h1,h2,h3,h4{ font-family:var(--display); line-height:1.18; font-weight:800; letter-spacing:-.01em; }
+p{ font-weight:300; }
+a{ color:inherit; text-decoration:none; }
+:focus-visible{ outline:3px solid var(--sky); outline-offset:3px; border-radius:var(--r-pill); }
+::selection{ background:rgba(45,55,186,.18); }
+.latin{ font-family:var(--latin); direction:ltr; unicode-bidi:isolate; letter-spacing:.14em; text-transform:uppercase; }
+
+/* ---------- layout ---------- */
+section{ position:relative; }
+.wrap{ width:100%; max-width:1180px; margin:0 auto; padding:0 clamp(1.2rem,5vw,3rem); }
+.sec{ padding:clamp(4.5rem,11vw,9rem) 0; }
+.sec--sand{ background:var(--sand); }
+.sec--dark{ background:var(--navy); color:#EFF1FA; }
+.sec--dark p{ color:#C2C7E0; }
+
+.kicker{
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-family:var(--latin); font-size:.66rem; letter-spacing:.22em; color:var(--royal);
+  padding:.45rem 1rem; border-radius:var(--r-pill);
+  background:#fff; border:1px solid var(--line); box-shadow:0 8px 26px -16px rgba(10,13,51,.4);
+}
+.sec--dark .kicker{ background:var(--glass-dark); color:#9FC9FF; border-color:rgba(255,255,255,.14);
+  -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); }
+.kicker .pin{ width:8px;height:8px;border-radius:50%;background:var(--gold); box-shadow:0 0 0 4px rgba(201,162,75,.18); }
+
+.sec-title{ font-size:clamp(1.6rem,4vw,2.7rem); margin:1.1rem 0 .2rem; }
+.sec-title .g{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.lead{ font-size:clamp(.98rem,1.4vw,1.15rem); color:var(--muted); max-width:60ch; }
+.sec--dark .lead{ color:#C2C7E0; }
+
+.reveal{ opacity:0; transform:translateY(30px); }
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.6em;
+  font-family:var(--display); font-weight:700; font-size:clamp(.9rem,1vw,1rem);
+  padding:.8rem 1.6rem; border-radius:var(--r-pill); cursor:pointer; border:1px solid transparent;
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), background .4s, color .4s, border-color .4s;
+  white-space:nowrap; user-select:none;
+}
+.btn--primary{ background:var(--grad); color:#fff; box-shadow:0 18px 40px -16px rgba(45,55,186,.7); }
+.btn--primary:hover{ transform:translateY(-3px); box-shadow:0 24px 50px -16px rgba(45,55,186,.85); }
+.btn--ghost{ background:#fff; color:var(--ink); border-color:var(--line); }
+.btn--ghost:hover{ transform:translateY(-3px); border-color:var(--royal); color:var(--royal); }
+.btn--glass{ background:var(--glass-light); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.5); color:var(--ink); }
+.btn--gold{ background:linear-gradient(180deg,#D9B765,#B98F38); color:#3a2c08; box-shadow:0 16px 36px -16px rgba(158,122,46,.7); }
+.btn--lg{ padding:.95rem 2rem; font-size:clamp(.98rem,1.2vw,1.1rem); }
+.btn .ico{ width:1.1em; height:1.1em; }
+
+/* ---------- nav ---------- */
+.nav{ position:fixed; inset-inline:0; top:0; z-index:70; transition:background .5s, box-shadow .5s, padding .5s; }
+.nav-inner{ display:flex; align-items:center; gap:1rem; padding:1.1rem clamp(1.2rem,5vw,3rem); transition:padding .4s; }
+.nav.scrolled{ background:var(--glass-light); -webkit-backdrop-filter:blur(22px) saturate(150%); backdrop-filter:blur(22px) saturate(150%); box-shadow:0 12px 40px -28px rgba(10,13,51,.6); border-bottom:1px solid rgba(255,255,255,.4); }
+.brand-logo{ height:38px; width:auto; display:block; flex:none; transition:filter .4s; }
+.brand-logo.white path{ fill:#fff !important; }
+.nav-links{ display:flex; gap:.2rem; margin-inline-end:auto; }
+.nav-links a{ font-family:var(--display); font-weight:500; font-size:.92rem; color:#fff; padding:.5rem .9rem; border-radius:var(--r-pill); transition:background .3s, color .3s; }
+.nav.scrolled .nav-links a{ color:var(--ink); }
+.nav-links a:hover{ background:rgba(255,255,255,.16); }
+.nav.scrolled .nav-links a:hover{ background:rgba(10,13,51,.06); color:var(--royal); }
+.nav-cta{ flex:none; }
+.nav-burger{ display:none; flex:none; width:46px;height:46px;border-radius:var(--r-pill); background:var(--glass-light); border:1px solid rgba(255,255,255,.5); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); cursor:pointer; place-items:center; }
+.nav-burger svg{ width:20px;height:20px; stroke:var(--ink); fill:none; stroke-width:1.8; }
+
+/* ---------- hero ---------- */
+.hero{ position:relative; min-height:100svh; display:flex; align-items:center; overflow:hidden; color:#fff;
+  /* Fallback if the video fails to load: brand gradient keeps the hero premium */
+  background:linear-gradient(135deg,#0A0D33 0%,#2D37BA 55%,#00AAFF 100%); background-size:cover; background-position:center;
+}
+.hero-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:0; pointer-events:none; background:transparent; }
+.hero::after{ content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(0deg, rgba(10,13,51,.55), rgba(10,13,51,.12) 40%, rgba(10,13,51,.35)); }
+.hero .wrap{ position:relative; z-index:2; padding-top:7rem; padding-bottom:4rem; }
+.hero-badge{
+  display:inline-flex; align-items:center; gap:.6rem; margin-bottom:1.3rem;
+  padding:.45rem 1rem .45rem .5rem; border-radius:var(--r-pill);
+  background:var(--glass-dark); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.22); font-size:.82rem;
+}
+.hero-badge .seal{ width:26px;height:26px;border-radius:50%; display:grid; place-items:center; background:linear-gradient(180deg,#D9B765,#B98F38); color:#3a2c08; font-family:var(--display); font-weight:900; font-size:.85rem; box-shadow:0 0 0 3px rgba(217,183,101,.25); }
+.hero h1{ font-size:clamp(1.9rem,6vw,4.2rem); font-weight:900; letter-spacing:-.02em; max-width:16ch; text-shadow:0 8px 40px rgba(10,13,51,.4); }
+.hero .subtitle{ font-family:var(--latin); font-size:clamp(.7rem,1.3vw,.9rem); letter-spacing:.32em; color:#Bfe3ff; margin-top:.9rem; }
+.hero-copy{ margin-top:1.4rem; max-width:48ch; font-size:clamp(.98rem,1.4vw,1.12rem); color:#EAF1FF; font-weight:300; }
+.hero-copy .em{ font-family:var(--display); font-weight:700; color:#fff; }
+.hero-copy .gold{ color:#F0D38B; font-weight:500; }
+.hero-cta{ margin-top:1.9rem; display:flex; gap:.8rem; flex-wrap:wrap; align-items:center; }
+.hero-stats{ margin-top:2rem; display:flex; gap:.6rem; flex-wrap:wrap; }
+.stat{
+  display:flex; flex-direction:column; gap:.1rem; padding:.65rem 1.15rem; border-radius:var(--r-pill);
+  background:var(--glass-dark); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.18); min-width:0;
+}
+.stat b{ font-family:var(--display); font-weight:900; font-size:1.1rem; }
+.stat span{ font-size:.76rem; color:#B9C2E8; }
+.scroll-cue{ position:absolute; z-index:2; bottom:1.6rem; inset-inline-start:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:.4rem; color:#cdd6f5; font-size:.8rem; }
+.scroll-cue .dot{ width:1px; height:34px; background:linear-gradient(#fff,transparent); animation:cue 2s ease-in-out infinite; }
+@keyframes cue{ 0%{transform:scaleY(.2);transform-origin:top;opacity:.3} 50%{transform:scaleY(1);opacity:1} 100%{transform:scaleY(.2);transform-origin:bottom;opacity:.3} }
+
+/* ---------- flight route rail (signature) ---------- */
+.rail{ position:fixed; top:0; bottom:0; inset-inline-start:max(1.2rem,2vw); width:42px; z-index:40; pointer-events:none; display:flex; align-items:center; }
+.rail-track{ position:relative; height:62vh; width:100%; }
+.rail-line{ position:absolute; inset-inline-start:50%; transform:translateX(-50%); top:0; bottom:0; width:2px; background:repeating-linear-gradient(var(--ink) 0 6px, transparent 6px 12px); opacity:.18; }
+.rail-fill{ position:absolute; inset-inline-start:50%; transform:translateX(-50%); top:0; width:2px; height:0; background:var(--grad); border-radius:2px; }
+.rail-plane{ position:absolute; inset-inline-start:50%; transform:translate(-50%,-50%) rotate(180deg); top:0; width:26px;height:26px; color:var(--royal); filter:drop-shadow(0 4px 10px rgba(45,55,186,.5)); transition:top .1s linear; }
+.rail-stop{ position:absolute; inset-inline-start:50%; transform:translate(-50%,-50%); width:9px;height:9px;border-radius:50%; background:#fff; border:2px solid var(--ink); opacity:.4; }
+.rail-stop.done{ background:var(--gold); border-color:var(--gold-deep); opacity:1; box-shadow:0 0 0 4px rgba(201,162,75,.2); }
+@media (max-width:1100px){ .rail{ display:none; } }
+
+/* ---------- generic stamp / route deco ---------- */
+.route-dash{ width:100%; height:2px; background:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px); margin:0; border:0; }
+
+/* ---------- section 2: what ---------- */
+.what-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(1.4rem,3vw,3rem); align-items:center; margin-top:2.6rem; }
+.what-card{ background:#fff; border:1px solid var(--line); border-radius:var(--r-card); padding:clamp(1.6rem,3vw,2.4rem); box-shadow:0 30px 70px -50px rgba(10,13,51,.5); }
+.what-card p{ font-size:1.04rem; color:#3a3f57; margin-bottom:1rem; }
+.what-card p:last-child{ margin-bottom:0; }
+.ticket{
+  position:relative; background:var(--grad); color:#fff; border-radius:var(--r-card); padding:2rem; overflow:hidden;
+  box-shadow:0 40px 80px -40px rgba(45,55,186,.7);
+}
+.ticket::before,.ticket::after{ content:""; position:absolute; width:34px;height:34px;border-radius:50%; background:var(--paper); top:50%; transform:translateY(-50%); }
+.ticket::before{ inset-inline-start:-17px; } .ticket::after{ inset-inline-end:-17px; }
+.sec--sand .ticket::before,.sec--sand .ticket::after{ background:var(--sand); }
+.ticket .perf{ position:absolute; top:50%; inset-inline:14px; transform:translateY(-50%); height:0; border-top:2px dashed rgba(255,255,255,.4); }
+.ticket .row{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+.ticket .big{ font-family:var(--display); font-weight:900; font-size:clamp(1.6rem,3vw,2.2rem); }
+.ticket .lbl{ font-family:var(--latin); font-size:.62rem; letter-spacing:.18em; color:#Bfe3ff; }
+.ticket .bottom{ margin-top:2.2rem; display:flex; justify-content:space-between; align-items:center; }
+.barcode{ height:34px; width:120px; background:repeating-linear-gradient(90deg,#fff 0 2px, transparent 2px 4px, #fff 4px 5px, transparent 5px 9px); border-radius:3px; opacity:.9; }
+
+/* ---------- section 3: why different (dark) ---------- */
+.why{ position:relative; overflow:hidden; }
+#whyCanvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; opacity:.5; }
+.why .wrap{ position:relative; z-index:2; }
+.why-quote{ font-family:var(--display); font-weight:800; font-size:clamp(2rem,6vw,4rem); line-height:1.25; margin:2rem 0; }
+.why-quote .g{ background:var(--grad-soft); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.why-lines{ display:grid; gap:.2rem; max-width:62ch; }
+.why-lines p{ font-size:clamp(1.05rem,1.8vw,1.35rem); color:#D4D9F0; font-weight:300; }
+.why-lines p.strong{ font-family:var(--display); font-weight:700; color:#fff; }
+.why-spec{ margin-top:2.4rem; display:flex; flex-wrap:wrap; gap:.6rem; }
+.why-spec .chip{ padding:.5rem 1.05rem; border-radius:var(--r-pill); background:var(--glass-dark); border:1px solid rgba(255,255,255,.16); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); font-family:var(--display); font-weight:500; font-size:.95rem; color:#EAF1FF; }
+.why-punch{ margin-top:2.4rem; font-family:var(--display); font-weight:800; font-size:clamp(1.4rem,3.4vw,2.2rem); color:#fff; }
+.why-punch .gold{ color:#F0D38B; }
+
+/* ---------- section 4: who ---------- */
+.tags{ display:flex; flex-wrap:wrap; gap:.7rem; margin:2rem 0 2.6rem; }
+.tag{
+  display:inline-flex; align-items:center; gap:.6rem; cursor:pointer;
+  padding:.7rem 1.3rem; border-radius:var(--r-pill); font-family:var(--display); font-weight:700; font-size:.98rem;
+  background:#fff; border:1.5px solid var(--line); color:var(--ink);
+  transition:transform .35s var(--ease), background .35s, border-color .35s, color .35s, box-shadow .35s;
+}
+.tag .st{ width:22px;height:22px;border-radius:50%; border:1.5px dashed var(--gold); display:grid; place-items:center; color:var(--gold-deep); font-size:.7rem; opacity:.55; transition:.35s; }
+.tag:hover{ transform:translateY(-3px); border-color:var(--royal); box-shadow:0 18px 40px -24px rgba(45,55,186,.6); }
+.tag.on{ background:var(--grad); color:#fff; border-color:transparent; }
+.tag.on .st{ background:#fff; color:var(--royal); border-style:solid; opacity:1; }
+.who-list{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; }
+.who-item{ display:flex; gap:.9rem; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:20px; padding:1.1rem 1.3rem; }
+.who-item .check{ flex:none; width:30px;height:30px;border-radius:50%; background:var(--grad); color:#fff; display:grid; place-items:center; font-size:.9rem; }
+.who-item span{ font-size:.98rem; color:#3a3f57; line-height:1.6; padding-top:.15rem; }
+
+/* ---------- section 5: benefits (boarding passes) ---------- */
+.benefits{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.2rem; margin-top:2.6rem; }
+.boarding{
+  position:relative; background:#fff; border:1px solid var(--line); border-radius:22px; padding:1.5rem 1.5rem 1.4rem; overflow:hidden;
+  box-shadow:0 24px 60px -44px rgba(10,13,51,.55); transition:transform .5s var(--ease), box-shadow .5s;
+}
+.boarding:hover{ transform:translateY(-6px); box-shadow:0 34px 70px -40px rgba(45,55,186,.5); }
+.boarding .stub{ position:absolute; top:0; inset-inline-end:0; height:100%; width:8px; background:var(--grad); }
+.boarding .n{ font-family:var(--latin); font-size:.66rem; letter-spacing:.16em; color:var(--royal); }
+.boarding h3{ font-size:1.08rem; margin:.5rem 0 .2rem; font-weight:800; }
+.boarding .ic{ width:42px;height:42px;border-radius:13px; background:var(--sand); display:grid; place-items:center; color:var(--royal); margin-bottom:.9rem; }
+.boarding .ic svg{ width:22px;height:22px; stroke:currentColor; fill:none; stroke-width:1.7; }
+
+/* ---------- section 6: application questions ---------- */
+.calm{ display:inline-flex; align-items:center; gap:.7rem; margin:1.6rem 0 2.4rem; padding:.75rem 1.25rem; border-radius:var(--r-pill); background:#fff; border:1px solid var(--line); color:#3a3f57; font-size:.98rem; box-shadow:0 14px 40px -30px rgba(10,13,51,.5); }
+.calm .em{ color:var(--gold-deep); }
+.q-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+.q-card{ position:relative; background:#fff; border:1px solid var(--line); border-radius:var(--r-card); padding:clamp(1.5rem,3vw,2.2rem); overflow:hidden; box-shadow:0 30px 70px -50px rgba(10,13,51,.5); }
+.q-card .qn{ position:absolute; top:-12px; inset-inline-start:18px; font-family:var(--display); font-weight:900; font-size:5rem; color:var(--sand); z-index:0; }
+.q-card .qbody{ position:relative; z-index:1; }
+.q-card .pill-time{ display:inline-flex; align-items:center; gap:.5rem; margin-top:1.2rem; padding:.45rem .95rem; border-radius:var(--r-pill); background:var(--sand); color:var(--gold-deep); font-family:var(--display); font-weight:700; font-size:.9rem; }
+.q-card h3{ font-size:clamp(1.1rem,2vw,1.4rem); margin-bottom:.6rem; }
+.q-card p{ font-size:1.02rem; color:#3a3f57; margin-bottom:.5rem; }
+.timer-demo{ margin-top:2.6rem; display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; }
+.ring{ width:96px;height:96px; flex:none; transform:rotate(-90deg); }
+.ring circle{ fill:none; stroke-width:8; }
+.ring .bg{ stroke:var(--sand-2); }
+.ring .fg{ stroke:url(#ringGrad); stroke-linecap:round; transition:stroke-dashoffset .25s linear; }
+.ring-num{ position:absolute; inset:0; display:grid; place-items:center; font-family:var(--display); font-weight:900; font-size:1.4rem; color:var(--ink); }
+.ring-wrap{ position:relative; width:96px;height:96px; }
+
+/* ---------- section 7: filming ---------- */
+.film{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(1.4rem,3vw,3rem); align-items:start; margin-top:2.4rem; }
+.film-rules{ display:grid; gap:.7rem; }
+.film-rule{ display:flex; align-items:center; gap:.9rem; background:#fff; border:1px solid var(--line); border-radius:var(--r-pill); padding:.72rem 1.2rem; font-size:.98rem; color:#3a3f57; }
+.film-rule .b{ flex:none; width:26px;height:26px;border-radius:50%; background:var(--grad); color:#fff; display:grid; place-items:center; font-size:.85rem; }
+.film-note{ position:sticky; top:6rem; background:var(--grad); color:#fff; border-radius:var(--r-card); padding:2rem; box-shadow:0 40px 80px -44px rgba(45,55,186,.7); }
+.film-note .phone{ width:54px;height:54px;border-radius:16px; background:rgba(255,255,255,.16); display:grid; place-items:center; margin-bottom:1.2rem; }
+.film-note .phone svg{ width:26px;height:26px; stroke:#fff; fill:none; stroke-width:1.6; }
+.film-note p{ color:#EAF1FF; font-size:1.04rem; }
+.film-note .strong{ font-family:var(--display); font-weight:800; }
+
+/* ---------- section 8: form ---------- */
+.form-shell{ background:#fff; border:1px solid var(--line); border-radius:clamp(24px,4vw,40px); padding:clamp(1.6rem,4vw,3rem); box-shadow:0 50px 110px -60px rgba(10,13,51,.6); margin-top:2.6rem; max-width:840px; margin-inline:auto; }
+.fgrid{ display:grid; grid-template-columns:1fr 1fr; gap:1.1rem 1.2rem; }
+.field{ display:flex; flex-direction:column; gap:.5rem; }
+.field.full{ grid-column:1 / -1; }
+.field label{ font-family:var(--display); font-weight:700; font-size:.98rem; }
+.field label .opt{ color:var(--muted); font-weight:400; font-size:.85rem; }
+.field input, .field select, .field textarea{
+  font-family:var(--body); font-size:1rem; color:var(--ink);
+  padding:.95rem 1.3rem; border:1.5px solid var(--line); border-radius:var(--r-pill);
+  background:var(--paper); transition:border-color .3s, box-shadow .3s, background .3s; width:100%;
+}
+.field textarea{ border-radius:22px; min-height:120px; resize:vertical; line-height:1.7; }
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--royal); background:#fff; box-shadow:0 0 0 4px rgba(45,55,186,.12); }
+.field input::placeholder, .field textarea::placeholder{ color:#9aa0b8; }
+.field select{ appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235C6178' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:left 1.2rem center; }
+
+/* video upload control */
+.video-field{ grid-column:1 / -1; background:var(--paper); border:1.5px dashed var(--line); border-radius:24px; padding:1.2rem; }
+.video-field .vhead{ display:flex; justify-content:space-between; align-items:center; gap:.8rem; flex-wrap:wrap; margin-bottom:1rem; }
+.video-field .vtitle{ font-family:var(--display); font-weight:700; }
+.seg{ display:inline-flex; background:#fff; border:1px solid var(--line); border-radius:var(--r-pill); padding:.25rem; }
+.seg button{ font-family:var(--display); font-weight:700; font-size:.9rem; border:0; background:transparent; color:var(--muted); padding:.5rem 1.1rem; border-radius:var(--r-pill); cursor:pointer; transition:.3s; }
+.seg button.on{ background:var(--grad); color:#fff; }
+.drop{ display:flex; flex-direction:column; align-items:center; gap:.6rem; text-align:center; padding:1.6rem 1rem; border-radius:18px; background:#fff; border:1px dashed var(--line); cursor:pointer; transition:.3s; color:var(--muted); }
+.drop:hover, .drop.drag{ border-color:var(--royal); background:rgba(45,55,186,.04); color:var(--royal); }
+.drop svg{ width:30px;height:30px; stroke:currentColor; fill:none; stroke-width:1.6; }
+.drop .fname{ font-family:var(--display); font-weight:700; color:var(--ink); }
+.url-in{ display:none; }
+.err{ color:#c0392b; font-size:.85rem; min-height:1em; display:block; }
+.form-submit{ margin-top:1.8rem; display:flex; flex-direction:column; align-items:center; gap:.8rem; }
+.form-note{ color:var(--muted); font-size:.9rem; text-align:center; }
+
+/* success state */
+.success{ display:none; text-align:center; padding:1rem; }
+.success.show{ display:block; }
+.success .seal{ width:84px;height:84px;border-radius:50%; margin:0 auto 1.4rem; background:linear-gradient(180deg,#D9B765,#B98F38); color:#3a2c08; display:grid; place-items:center; box-shadow:0 0 0 8px rgba(201,162,75,.18); }
+.success .seal svg{ width:40px;height:40px; stroke:#3a2c08; fill:none; stroke-width:2.4; }
+.success h3{ font-size:clamp(1.5rem,3vw,2rem); margin-bottom:.6rem; }
+.success p{ color:var(--muted); font-size:1.1rem; max-width:46ch; margin:0 auto; }
+.success .pass{ margin:1.8rem auto 0; max-width:420px; background:var(--grad); color:#fff; border-radius:20px; padding:1.4rem 1.6rem; text-align:start; }
+.success .pass .lbl{ font-family:var(--latin); font-size:.6rem; letter-spacing:.16em; color:#Bfe3ff; }
+.success .pass .nm{ font-family:var(--display); font-weight:900; font-size:1.4rem; }
+
+/* ---------- final ---------- */
+.final{ position:relative; overflow:hidden; }
+#finalCanvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+.final::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg, rgba(10,13,51,.7), rgba(10,13,51,.3)); }
+.final .wrap{ position:relative; z-index:2; text-align:center; color:#fff; }
+.final h2{ font-size:clamp(2rem,6vw,4rem); font-weight:900; line-height:1.2; }
+.final-lines{ margin:1.4rem auto 0; max-width:54ch; }
+.final-lines p{ font-size:clamp(1.1rem,2vw,1.4rem); color:#EAF1FF; font-weight:300; }
+.final-lines p.warm{ font-family:var(--display); font-weight:700; color:#F0D38B; }
+.final .btn{ margin-top:2.4rem; }
+
+footer{ background:var(--navy); color:#9aa3c8; text-align:center; padding:2.6rem 1rem 3rem; }
+footer .brand-logo{ height:38px; margin:0 auto 1rem; }
+footer .brand-logo path{ fill:#fff !important; }
+footer .small{ font-size:.85rem; }
+
+/* mobile menu */
+.mmenu{ position:fixed; z-index:69; top:5rem; inset-inline:1rem; padding:.6rem; border-radius:26px; display:none; flex-direction:column; gap:.2rem;
+  background:var(--glass-light); -webkit-backdrop-filter:blur(22px); backdrop-filter:blur(22px); border:1px solid rgba(255,255,255,.5); box-shadow:0 30px 70px -40px rgba(10,13,51,.6); }
+.mmenu.show{ display:flex; }
+.mmenu a{ font-family:var(--display); font-weight:700; padding:.85rem 1.2rem; border-radius:var(--r-pill); }
+.mmenu a:hover{ background:rgba(45,55,186,.08); color:var(--royal); }
+
+/* ---------- responsive ---------- */
+@media (max-width:880px){
+  .nav-links{ display:none; }
+  .nav-burger{ display:grid; }
+  .what-grid{ grid-template-columns:1fr; }
+  .q-grid{ grid-template-columns:1fr; }
+  .film{ grid-template-columns:1fr; }
+  .fgrid{ grid-template-columns:1fr; }
+  .film-note{ position:static; }
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:.001ms !important; }
+  .reveal{ opacity:1 !important; transform:none !important; }
+}
+.no-anim .reveal{ opacity:1 !important; transform:none !important; }
+</style>
+</head>
+
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <!-- Wijhat logo (inline) -->
+    <svg class="brand-logo white" id="navLogo" viewBox="0 0 1756.2 811.48" aria-label="وجهات" role="img">
+      <defs>
+        <linearGradient id="lg" x1="-46.52" y1="581.11" x2="2062.19" y2="581.11" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#0af"/><stop offset=".52" stop-color="#2d37ba"/><stop offset="1" stop-color="#0a0d33"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#lg)" d="M1670.2,358.1c-65.89-32.85-111.67,53.61-109.27,122.05.93,26.17,22.03,47.12,48.14,48.42,20.51,1.06,43.91,2.27,53.8,2.95,17.44,1.31,66.01.4,64.8,18.83-5.13,78.35-133.8,160.62-190.33,184.27-58.4,26.32-144.18,44.72-211.27,2.92l-6.96,7.77c16.04,23.31,168.94,151.73,351.81-29.03,34.71-35.09,63.15-77.67,76.11-126.03,21.91-82.2,7.68-189.99-76.83-232.16ZM1589.17,453.73s9.11-16.19,19.77-22.53c33.32-19.83,83.76,9.73,101.63,34.99,0,0-18.27-9.79-121.39-12.46Z"/>
+      <path fill="url(#lg)" d="M1199.26,26.55c-53.54,82.67-299.07,128.98-372.72,224.79-4.97,6.56-16.38,32.6-16.75,40.43h4.29c1.59-1.55,3.64-4.01,6.25-7.52,52-69.62,305.9-140.31,359.4-210.84,18.23-24.03,22.75-38.69,23.37-46.87"/>
+      <path fill="url(#lg)" d="M1331.13,593.28c-27.86-31.22-56.27-48.38-72.6-51.32l-45.65,75.27c21.79,12.4,41.09,24.46,71,53.96l47.25-77.91Z"/>
+      <path fill="url(#lg)" d="M1066.95,731.42c-57.56-40.56-58.61-99.91-50.8-134.76,7.83-34.98,35.84-79.52,98.75-96.09,80.88-21.3,276.77-4.08,354-7.06l45.72-78.44c-54.79-1.77-147.34-10.07-250.53-86.05-165.31-121.69-215.65,82.82-215.65,82.82l12.4,4.97c34.68-61.82,89.51-88.62,199.57-.32-95.85-1.75-163.83,19.07-216.99,62.79-57.23,47.06-89.95,132.25-68.83,204.12-68.9-72.81-71.75-146.46-71.75-146.46,0,0,32.82-66.9,42.96-117.56l-11.75-5.22c-8.99,29.16-43.19,103.28-87.29,118.66-67.69,23.62-109.54-21.32-109.82-97.49,2.27-150.24,8.34-293.62-27.67-435.11l-9.42-.22-38.25,64.5c35.24,96.94,30.39,265.83,33.68,451.39.95,53.54,28.25,96.84,63.83,108.83,44.53,15.02,77.02,1.35,107.2-37.78,3.11,1.62,2.33,1.27,5.44,2.83,7.03,54.05,32.93,164.28,142.95,221.71l52.26-80.06Z"/>
+      <path fill="url(#lg)" d="M574.57,422.44c-68.69-7.44-141.7,28.68-203.38,50.32-161.81,56.79-354.21,58.28-358.69-86.81l-10.54-.16c-5.47,43.12-.15,89.99,24.84,129,72.88,113.8,280.04,65.45,418.41,9.29,80.89-32.83,184.35-52.87,200.58,33.06.62,3.26,1.26,12.54,1.26,12.54l10.69.1s1.1-12.81,1.32-15.82c2.27-31.64,1.88-122.25-84.47-131.54Z"/>
+      <path fill="url(#lg)" d="M410.64,307.67l-47.27,77.91c-24.4-24.06-41.73-36.53-59.13-47.04l-28.53,47.04c-29.92-29.51-49.22-41.56-71-53.96l45.65-75.28c14.41,2.59,38.26,16.28,62.83,40.97l24.84-40.97c16.32,2.94,44.74,20.11,72.6,51.33Z"/>
+    </svg>
+
+    <nav class="nav-links" aria-label="روابط">
+      <a href="#what">الزمالة</a>
+      <a href="#who">منو نبحث عنه</a>
+      <a href="#benefits">شنو تحصل</a>
+      <a href="#apply">التقديم</a>
+    </nav>
+    <a href="#form" class="btn btn--glass nav-cta">قدّم الآن</a>
+    <button class="nav-burger" id="burger" aria-label="القائمة"><svg viewBox="0 0 24 24"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="#what">الزمالة</a><a href="#who">منو نبحث عنه</a><a href="#benefits">شنو تحصل</a><a href="#apply">التقديم</a><a href="#form">قدّم الآن</a>
+</div>
+
+<!-- Flight route rail (signature) -->
+<div class="rail" aria-hidden="true">
+  <div class="rail-track" id="railTrack">
+    <div class="rail-line"></div>
+    <div class="rail-fill" id="railFill"></div>
+    <svg class="rail-plane" id="railPlane" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L11 19v-5.5z"/></svg>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="../assets/wijhat/video/hero-poster.jpg" src="../assets/wijhat/video/hero-video.mp4"></video>
+  <div class="wrap">
+    <div class="hero-badge">
+      <span class="seal">١</span>
+      <span>مقعد واحد فقط — أول دفعة من الزمالة</span>
+    </div>
+
+    <h1>زمالة صانع محتوى السفر</h1>
+    <div class="subtitle latin">Travel Storyteller Fellowship</div>
+
+    <div class="hero-copy">
+      <p><span class="em">فرصة مدفوعة لمدة 3 أشهر مع وجهات.</span></p>
+      <p>إحنا نبحث عن <span class="gold">شخص واحد فقط</span>. شخص عنده حضور، طاقة، فضول، ويحب السفر ويحچي عنه بطريقة تخلي الناس تتحمس وتريد تعرف أكثر.</p>
+      <p>إذا أنت من الأشخاص اللي من ترجع من سفر، كل أصدقائك يكعدون يسمعون قصصك… <span class="em">يمكن هاي الفرصة إلك.</span></p>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#form" class="btn btn--primary btn--lg">قدّم الآن بدون CV</a>
+      <a href="#apply" class="btn btn--glass btn--lg">شوف طريقة التقديم</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><b>١</b><span>مقعد متاح</span></div>
+      <div class="stat"><b>١٢ أسبوع</b><span>مدة الزمالة</span></div>
+      <div class="stat"><b>يومين</b><span>بالأسبوع فقط</span></div>
+      <div class="stat"><b>مدفوعة</b><span>أجر + حوافز</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>مرّر للاستكشاف</span><span class="dot"></span></div>
+</section>
+
+<!-- ============ 2. WHAT IS THE FELLOWSHIP ============ -->
+<section class="sec" id="what">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="pin"></span> 01 — البرنامج</span>
+    <h2 class="sec-title reveal">شنو هي <span class="g">الزمالة؟</span></h2>
+    <div class="what-grid">
+      <div class="what-card reveal">
+        <p>برنامج مدفوع لمدة 12 أسبوع. يومين بالأسبوع فقط.</p>
+        <p>خلال هالفترة راح تكون جزء من فريق وجهات وتساعدنا نصنع محتوى عن السفر، الفنادق، الوجهات، النصائح والتجارب السياحية.</p>
+        <p>راح تصور فيديوهات قصيرة، تظهر أمام الكاميرا، وتساعد آلاف المسافرين يكتشفون أماكن وتجارب جديدة.</p>
+      </div>
+      <div class="ticket reveal">
+        <div class="perf"></div>
+        <div class="row">
+          <div><div class="lbl">FELLOWSHIP</div><div class="big">وجهات</div></div>
+          <div style="text-align:start"><div class="lbl">SEAT</div><div class="big">01</div></div>
+        </div>
+        <div class="bottom">
+          <div><div class="lbl">DURATION</div><div class="big" style="font-size:1.3rem">١٢ أسبوع</div></div>
+          <div class="barcode"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. WHY THIS IS DIFFERENT (dark) ============ -->
+<section class="sec sec--dark why" id="why">
+  <canvas id="whyCanvas"></canvas>
+  <div class="wrap">
+    <span class="kicker reveal"><span class="pin"></span> 02 — الفلسفة</span>
+    <h2 class="sec-title reveal" style="color:#fff">ليش هالفرصة <span class="g">مختلفة؟</span></h2>
+
+    <p class="why-quote reveal">إحنا نؤمن أن السفر مو مجرد حجوزات وفنادق وتذاكر.<br><span class="g">السفر ثقة.</span></p>
+
+    <div class="why-lines reveal">
+      <p>لأن بالنهاية الناس ما تسافر ويّاك لأنك سويت إعلان حلو، ولا لأن عندك آلاف المتابعين.</p>
+      <p class="strong">الناس تسافر ويّاك لأن تثق بيك.</p>
+      <p>ولهذا إحنا مو دا ندور على مؤثر جاهز. دا ندور على شخص حقيقي.</p>
+      <p>شخص يعرف يحچي ويّه الناس، يشرح فكرة، ينقل حماسه، ويخلي غيره يتخيل نفسه بالمكان.</p>
+    </div>
+
+    <div class="why-spec reveal">
+      <span class="chip">ممكن طبيب أسنان حديث تخرّج</span>
+      <span class="chip">ممكن مهندس</span>
+      <span class="chip">ممكن صيدلي</span>
+      <span class="chip">ممكن معماري</span>
+      <span class="chip">ممكن طبيب</span>
+    </div>
+
+    <p class="why-punch reveal">التخصص مو المهم. المهم <span class="gold">حضورك، طاقتك، فضولك</span>، وقدرتك على بناء الثقة قبل بناء المتابعين.</p>
+  </div>
+</section>
+
+<!-- ============ 4. WHO WE ARE LOOKING FOR ============ -->
+<section class="sec" id="who">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="pin"></span> 03 — المرشّح</span>
+    <h2 class="sec-title reveal">منو <span class="g">نبحث عنه؟</span></h2>
+    <p class="lead reveal">نحب نشوف طلبات من خريجين وخريجات جدد، خصوصاً من تخصصات مثل:</p>
+
+    <div class="tags reveal" id="tags">
+      <button class="tag" type="button">طب الأسنان <span class="st">✓</span></button>
+      <button class="tag" type="button">الطب <span class="st">✓</span></button>
+      <button class="tag" type="button">الصيدلة <span class="st">✓</span></button>
+      <button class="tag" type="button">الهندسة <span class="st">✓</span></button>
+      <button class="tag" type="button">العمارة <span class="st">✓</span></button>
+      <button class="tag" type="button">أو أي تخصص مشابه <span class="st">✓</span></button>
+    </div>
+
+    <h3 class="reveal" style="font-size:clamp(1.2rem,2.4vw,1.6rem); margin-bottom:1.2rem;">ونفضّل شخص:</h3>
+    <div class="who-list">
+      <div class="who-item reveal"><span class="check">✓</span><span>يتحدث العربية بطلاقة</span></div>
+      <div class="who-item reveal"><span class="check">✓</span><span>يتحدث الإنجليزية بشكل جيد</span></div>
+      <div class="who-item reveal"><span class="check">✓</span><span>عنده لهجة عراقية واضحة ومحبوبة</span></div>
+      <div class="who-item reveal"><span class="check">✓</span><span>مرتاح أمام الكاميرا</span></div>
+      <div class="who-item reveal"><span class="check">✓</span><span>يحب السفر واكتشاف أماكن جديدة</span></div>
+      <div class="who-item reveal"><span class="check">✓</span><span>عنده شخصية مرحة وإيجابية</span></div>
+      <div class="who-item reveal"><span class="check">✓</span><span>يعرف يحچي بطريقة مرتبة ومقنعة</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. WHAT YOU GET ============ -->
+<section class="sec sec--sand" id="benefits">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="pin"></span> 04 — المكافأة</span>
+    <h2 class="sec-title reveal">شنو راح <span class="g">تحصل؟</span></h2>
+    <p class="lead reveal">هاي مو مجرد وظيفة مؤقتة.</p>
+
+    <div class="benefits">
+      <div class="boarding reveal"><div class="stub"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1v22M5 5h11a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg></div><div class="n">01</div><h3>أجر شهري</h3></div>
+      <div class="boarding reveal"><div class="stub"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.5 6.5L21 9l-5 4 1.5 7L12 16l-5.5 4L8 13 3 9l6.5-.5z"/></svg></div><div class="n">02</div><h3>حوافز ومكافآت مرتبطة بالأداء</h3></div>
+      <div class="boarding reveal"><div class="stub"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h18v13H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><div class="n">03</div><h3>خبرة عملية حقيقية في قطاع السفر</h3></div>
+      <div class="boarding reveal"><div class="stub"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5zM1 5h15v14H1z"/></svg></div><div class="n">04</div><h3>تدريب على صناعة المحتوى والظهور أمام الكاميرا</h3></div>
+      <div class="boarding reveal"><div class="stub"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div><div class="n">05</div><h3>بناء ملف مهني وشخصي مميز</h3></div>
+      <div class="boarding reveal"><div class="stub"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-3-3.87M9 21v-2a4 4 0 0 1 3-3.87M9 7a3 3 0 1 0 6 0 3 3 0 0 0-6 0zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="n">06</div><h3>فرصة للعمل مع فريق وجهات</h3></div>
+      <div class="boarding reveal"><div class="stub"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="n">07</div><h3>إمكانية الاستمرار بعد انتهاء البرنامج</h3></div>
+      <div class="boarding reveal"><div class="stub"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div class="n">08</div><h3>الوصول إلى تجارب وشركاء وعروض سياحية مميزة</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. APPLICATION (questions) ============ -->
+<section class="sec" id="apply">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="pin"></span> 05 — التقديم</span>
+    <h2 class="sec-title reveal">طريقة <span class="g">التقديم</span></h2>
+    <p class="lead reveal">ما نريد CV. ما نريد رسالة تعريف. نريد نشوف شخصيتك. سجّل فيديوين قصيرين وجاوب على السؤالين التاليين.</p>
+    <div class="calm reveal"><span>💬</span><span>فكّر بالأمر وكأنك <span class="em">دا تحچي ويّه صديق</span>، مو دا تسوي مقابلة عمل.</span></div>
+
+    <div class="q-grid">
+      <div class="q-card reveal">
+        <span class="qn">١</span>
+        <div class="qbody">
+          <h3>السؤال الأول</h3>
+          <p>عندك 500 دولار وتذكرة طيران مجانية.</p>
+          <p><strong>وين تروح؟ وشنو أول شي راح تسويه من توصل؟</strong></p>
+          <span class="pill-time">⏱ مدة الفيديو: دقيقة واحدة كحد أقصى</span>
+        </div>
+      </div>
+      <div class="q-card reveal">
+        <span class="qn">٢</span>
+        <div class="qbody">
+          <h3>السؤال الثاني</h3>
+          <p>عندك صديق يكره السفر وما مقتنع بيه نهائياً.</p>
+          <p><strong>عندك دقيقة وحدة فقط حتى تقنعه يسافر. شنو راح تكوله؟</strong></p>
+          <span class="pill-time">⏱ مدة الفيديو: دقيقة واحدة كحد أقصى</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timer-demo reveal">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 100 100">
+          <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00AAFF"/><stop offset="1" stop-color="#2D37BA"/></linearGradient></defs>
+          <circle class="bg" cx="50" cy="50" r="44"/>
+          <circle class="fg" id="ringFg" cx="50" cy="50" r="44"/>
+        </svg>
+        <div class="ring-num" id="ringNum">٦٠</div>
+      </div>
+      <div>
+        <h3 style="font-size:1.25rem; margin-bottom:.3rem;">جرّب الإحساس: عندك دقيقة وحدة</h3>
+        <p style="color:var(--muted)">اضغط وشوف شكد دقيقة تكفي حتى تحچي بطبيعتك.</p>
+        <button class="btn btn--ghost" id="timerBtn" type="button" style="margin-top:.8rem; padding:.7rem 1.5rem;">ابدأ المؤقت</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FILMING RULES ============ -->
+<section class="sec sec--sand" id="filming">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="pin"></span> 06 — التصوير</span>
+    <h2 class="sec-title reveal">تعليمات <span class="g">التصوير</span></h2>
+    <p class="lead reveal">خليها بسيطة.</p>
+
+    <div class="film">
+      <div class="film-rules">
+        <div class="film-rule reveal"><span class="b">1</span> صوّر بالموبايل فقط</div>
+        <div class="film-rule reveal"><span class="b">2</span> صوّر بشكل عمودي</div>
+        <div class="film-rule reveal"><span class="b">3</span> واجه الكاميرا مباشرة</div>
+        <div class="film-rule reveal"><span class="b">4</span> اختار مكان هادئ وإضاءة واضحة</div>
+        <div class="film-rule reveal"><span class="b">5</span> لا تحتاج مونتاج أو مؤثرات</div>
+        <div class="film-rule reveal"><span class="b">6</span> لا تحفظ نص أو تقرأ من ورقة</div>
+        <div class="film-rule reveal"><span class="b">7</span> احچي بطبيعتك وخلي شخصيتك تبيّن</div>
+      </div>
+      <div class="film-note reveal">
+        <div class="phone"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+        <p class="strong">إحنا مو دا نقيّم معداتك.</p>
+        <p style="margin-top:.6rem">إحنا دا نقيّم <strong>طاقتك، حضورك، وطريقتك بالكلام.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. APPLICATION FORM ============ -->
+<section class="sec" id="form">
+  <div class="wrap">
+    <span class="kicker reveal"><span class="pin"></span> 07 — أرسل طلبك</span>
+    <h2 class="sec-title reveal">قدّم <span class="g">الآن</span></h2>
+
+    <div class="form-shell reveal">
+      <!--  «اربط الباك-إند هنا»  : set action / handle submit in the script (search: FORM SUBMIT)  -->
+      <form id="appForm" novalidate>
+        <div class="fgrid">
+          <div class="field">
+            <label for="f-name">الاسم الكامل</label>
+            <input id="f-name" name="name" type="text" placeholder="اسمك الكامل" autocomplete="name" required>
+            <small class="err" data-for="f-name"></small>
+          </div>
+          <div class="field">
+            <label for="f-phone">رقم الهاتف</label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="07xx xxx xxxx" autocomplete="tel" required>
+            <small class="err" data-for="f-phone"></small>
+          </div>
+          <div class="field">
+            <label for="f-email">البريد الإلكتروني</label>
+            <input id="f-email" name="email" type="email" inputmode="email" placeholder="name@email.com" autocomplete="email" required>
+            <small class="err" data-for="f-email"></small>
+          </div>
+          <div class="field">
+            <label for="f-city">المدينة</label>
+            <input id="f-city" name="city" type="text" placeholder="بغداد، البصرة، أربيل…" required>
+            <small class="err" data-for="f-city"></small>
+          </div>
+          <div class="field">
+            <label for="f-major">التخصص الدراسي</label>
+            <select id="f-major" name="major" required>
+              <option value="" disabled selected>اختر تخصصك</option>
+              <option>طب الأسنان</option><option>الطب</option><option>الصيدلة</option>
+              <option>الهندسة</option><option>العمارة</option><option>تخصص آخر</option>
+            </select>
+            <small class="err" data-for="f-major"></small>
+          </div>
+          <div class="field">
+            <label for="f-social">رابط إنستغرام أو تيك توك <span class="opt">(اختياري)</span></label>
+            <input id="f-social" name="social" type="url" placeholder="https://" dir="ltr">
+          </div>
+
+          <!-- Video 1 -->
+          <div class="video-field" data-video="1">
+            <div class="vhead">
+              <span class="vtitle">الفيديو الأول — السؤال ١</span>
+              <div class="seg" role="tablist">
+                <button type="button" class="on" data-mode="file">ارفع فيديو</button>
+                <button type="button" data-mode="url">أو ضع رابط</button>
+              </div>
+            </div>
+            <!--  «اربط خدمة الرفع هنا»  : files are read locally only; wire to your upload service (search: VIDEO UPLOAD)  -->
+            <label class="drop" data-drop="1">
+              <svg viewBox="0 0 24 24"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>
+              <span class="fname" data-fname="1">اسحب الفيديو هنا أو اضغط للاختيار</span>
+              <span style="font-size:.82rem">صيغة عمودية، أقل من دقيقة</span>
+              <input type="file" accept="video/*" hidden data-file="1">
+            </label>
+            <input class="url-in" type="url" dir="ltr" placeholder="https://… رابط الفيديو" data-url="1">
+            <small class="err" data-for="video1"></small>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="video-field" data-video="2">
+            <div class="vhead">
+              <span class="vtitle">الفيديو الثاني — السؤال ٢</span>
+              <div class="seg" role="tablist">
+                <button type="button" class="on" data-mode="file">ارفع فيديو</button>
+                <button type="button" data-mode="url">أو ضع رابط</button>
+              </div>
+            </div>
+            <label class="drop" data-drop="2">
+              <svg viewBox="0 0 24 24"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>
+              <span class="fname" data-fname="2">اسحب الفيديو هنا أو اضغط للاختيار</span>
+              <span style="font-size:.82rem">صيغة عمودية، أقل من دقيقة</span>
+              <input type="file" accept="video/*" hidden data-file="2">
+            </label>
+            <input class="url-in" type="url" dir="ltr" placeholder="https://… رابط الفيديو" data-url="2">
+            <small class="err" data-for="video2"></small>
+          </div>
+
+          <div class="field full">
+            <label for="f-why">ليش حاب تنضم إلى زمالة صانع محتوى السفر؟ <span class="opt">(اختياري)</span></label>
+            <textarea id="f-why" name="why" placeholder="بكلمات بسيطة… شنو اللي يحمّسك بهالشي؟"></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn--primary btn--lg" style="width:100%; max-width:420px;">إرسال التقديم</button>
+          <p class="form-note">مقعد واحد فقط لأول دفعة. ناخذ وقتنا حتى نقرأ كل طلب.</p>
+        </div>
+      </form>
+
+      <!-- success -->
+      <div class="success" id="success" role="status" aria-live="polite">
+        <div class="seal"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h3>شكراً لتقديمك.</h3>
+        <p>إذا تم اختيارك للمرحلة التالية، راح يتواصل وياك فريق وجهات.</p>
+        <div class="pass">
+          <div class="lbl">APPLICANT — مرشّح الزمالة</div>
+          <div class="nm" id="passName">—</div>
+          <div class="lbl" style="margin-top:.6rem">WIJHAT · TRAVEL STORYTELLER FELLOWSHIP · SEAT 01</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. FINAL CTA ============ -->
+<section class="sec final" id="final">
+  <canvas id="finalCanvas"></canvas>
+  <div class="wrap">
+    <h2 class="reveal">يمكن أنت مو مؤثر.</h2>
+    <div class="final-lines reveal">
+      <p>ومو مشهور. ومو صانع محتوى محترف.</p>
+      <p class="warm">لكن إذا عندك شخصية يحبها الناس، وطريقة تخلي الأماكن تنبض بالحياة من خلال كلامك…</p>
+      <p>نحب نتعرف عليك.</p>
+    </div>
+    <a href="#form" class="btn btn--gold btn--lg reveal">قدّم الآن</a>
+  </div>
+</section>
+
+<footer>
+  <svg class="brand-logo" viewBox="0 0 1756.2 811.48" aria-label="وجهات">
+    <path d="M1670.2,358.1c-65.89-32.85-111.67,53.61-109.27,122.05.93,26.17,22.03,47.12,48.14,48.42,20.51,1.06,43.91,2.27,53.8,2.95,17.44,1.31,66.01.4,64.8,18.83-5.13,78.35-133.8,160.62-190.33,184.27-58.4,26.32-144.18,44.72-211.27,2.92l-6.96,7.77c16.04,23.31,168.94,151.73,351.81-29.03,34.71-35.09,63.15-77.67,76.11-126.03,21.91-82.2,7.68-189.99-76.83-232.16ZM1589.17,453.73s9.11-16.19,19.77-22.53c33.32-19.83,83.76,9.73,101.63,34.99,0,0-18.27-9.79-121.39-12.46Z"/>
+    <path d="M1199.26,26.55c-53.54,82.67-299.07,128.98-372.72,224.79-4.97,6.56-16.38,32.6-16.75,40.43h4.29c1.59-1.55,3.64-4.01,6.25-7.52,52-69.62,305.9-140.31,359.4-210.84,18.23-24.03,22.75-38.69,23.37-46.87"/>
+    <path d="M1331.13,593.28c-27.86-31.22-56.27-48.38-72.6-51.32l-45.65,75.27c21.79,12.4,41.09,24.46,71,53.96l47.25-77.91Z"/>
+    <path d="M1066.95,731.42c-57.56-40.56-58.61-99.91-50.8-134.76,7.83-34.98,35.84-79.52,98.75-96.09,80.88-21.3,276.77-4.08,354-7.06l45.72-78.44c-54.79-1.77-147.34-10.07-250.53-86.05-165.31-121.69-215.65,82.82-215.65,82.82l12.4,4.97c34.68-61.82,89.51-88.62,199.57-.32-95.85-1.75-163.83,19.07-216.99,62.79-57.23,47.06-89.95,132.25-68.83,204.12-68.9-72.81-71.75-146.46-71.75-146.46,0,0,32.82-66.9,42.96-117.56l-11.75-5.22c-8.99,29.16-43.19,103.28-87.29,118.66-67.69,23.62-109.54-21.32-109.82-97.49,2.27-150.24,8.34-293.62-27.67-435.11l-9.42-.22-38.25,64.5c35.24,96.94,30.39,265.83,33.68,451.39.95,53.54,28.25,96.84,63.83,108.83,44.53,15.02,77.02,1.35,107.2-37.78,3.11,1.62,2.33,1.27,5.44,2.83,7.03,54.05,32.93,164.28,142.95,221.71l52.26-80.06Z"/>
+    <path d="M574.57,422.44c-68.69-7.44-141.7,28.68-203.38,50.32-161.81,56.79-354.21,58.28-358.69-86.81l-10.54-.16c-5.47,43.12-.15,89.99,24.84,129,72.88,113.8,280.04,65.45,418.41,9.29,80.89-32.83,184.35-52.87,200.58,33.06.62,3.26,1.26,12.54,1.26,12.54l10.69.1s1.1-12.81,1.32-15.82c2.27-31.64,1.88-122.25-84.47-131.54Z"/>
+    <path d="M410.64,307.67l-47.27,77.91c-24.4-24.06-41.73-36.53-59.13-47.04l-28.53,47.04c-29.92-29.51-49.22-41.56-71-53.96l45.65-75.28c14.41,2.59,38.26,16.28,62.83,40.97l24.84-40.97c16.32,2.94,44.74,20.11,72.6,51.33Z"/>
+  </svg>
+  <p class="small">وجهات — نحيطكم بالعالم. زمالة صانع محتوى السفر · مقعد واحد فقط.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  const HAS_GSAP = typeof window.gsap !== "undefined";
+  const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (HAS_GSAP && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+  if (REDUCED) document.body.classList.add("no-anim");
+  const $ = (s,c=document)=>c.querySelector(s);
+  const $$ = (s,c=document)=>Array.from(c.querySelectorAll(s));
+  const DPR = ()=> Math.min(window.devicePixelRatio||1, 2);
+
+  /* ---------- nav ---------- */
+  const nav=$("#nav"), navLogo=$("#navLogo");
+  function onScroll(){
+    const s = window.scrollY > 40;
+    nav.classList.toggle("scrolled", s);
+    navLogo.classList.toggle("white", !s);
+  }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+  const burger=$("#burger"), mmenu=$("#mmenu");
+  burger.addEventListener("click", ()=> mmenu.classList.toggle("show"));
+  $$("#mmenu a").forEach(a=>a.addEventListener("click",()=>mmenu.classList.remove("show")));
+
+  /* ---------- generic procedural mountain scene ---------- */
+  // seeded ridge via midpoint displacement (stable across frames)
+  function makeRidge(points, rough, seed){
+    let arr=new Array(points).fill(0);
+    arr[0]=Math.random(); arr[points-1]=Math.random();
+    let step=points-1, scale=rough;
+    while(step>1){
+      const half=step/2;
+      for(let i=half;i<points;i+=step){
+        const a=arr[i-half], b=arr[(i+half)%points];
+        arr[i]=(a+b)/2 + (Math.random()*2-1)*scale;
+      }
+      step=half; scale*=0.55;
+    }
+    let mn=Math.min(...arr), mx=Math.max(...arr);
+    return arr.map(v=>(v-mn)/(mx-mn||1));
+  }
+  function mountainScene(canvas, opts={}){
+    const ctx=canvas.getContext("2d");
+    const layers = opts.layers ?? [
+      {y:0.50, amp:0.30, col:"#5E73C8", haze:0.55},
+      {y:0.62, amp:0.34, col:"#3A49A8", haze:0.40},
+      {y:0.74, amp:0.40, col:"#222C76", haze:0.22},
+      {y:0.86, amp:0.46, col:"#0E1646", haze:0.0}
+    ];
+    let ridges=layers.map(()=>makeRidge(129,0.5));
+    let W=0,H=0, raf=null, running=false, t0=performance.now();
+    let mx=0,my=0, scrollY=0;
+    function size(){ const r=canvas.getBoundingClientRect(); W=r.width;H=r.height; canvas.width=W*DPR(); canvas.height=H*DPR(); ctx.setTransform(DPR(),0,0,DPR(),0,0); }
+    function draw(now){
+      const t=(now-t0)/1000;
+      ctx.clearRect(0,0,W,H);
+      // sky: warm dawn (sand/gold low) → sky blue → deep navy top
+      let sky=ctx.createLinearGradient(0,0,0,H);
+      sky.addColorStop(0,"#0A0D33");
+      sky.addColorStop(0.35,"#1B2A6B");
+      sky.addColorStop(0.62,"#3E6FB0");
+      sky.addColorStop(0.80,"#C8A86A");
+      sky.addColorStop(1,"#E8C98A");
+      ctx.fillStyle=sky; ctx.fillRect(0,0,W,H);
+      // sun glow near horizon
+      const sx=W*0.72, sy=H*0.78;
+      let glow=ctx.createRadialGradient(sx,sy,0,sx,sy,H*0.6);
+      glow.addColorStop(0,"rgba(255,228,170,0.55)"); glow.addColorStop(0.5,"rgba(255,210,140,0.12)"); glow.addColorStop(1,"rgba(255,210,140,0)");
+      ctx.fillStyle=glow; ctx.fillRect(0,0,W,H);
+      ctx.beginPath(); ctx.arc(sx,sy,H*0.05,0,7); ctx.fillStyle="rgba(255,236,190,0.85)"; ctx.fill();
+      // drifting haze band
+      ctx.save(); ctx.globalAlpha=0.10;
+      for(let i=0;i<3;i++){ const yy=H*(0.55+i*0.06)+Math.sin(t*0.2+i)*4; ctx.fillStyle="#dfe9ff"; ctx.fillRect(0,yy,W,2); }
+      ctx.restore();
+      // ridges back→front with parallax
+      layers.forEach((L,li)=>{
+        const r=ridges[li];
+        const par = (li+1)/layers.length;
+        const offX = mx*14*par;
+        const offY = scrollY*0.06*par;
+        const baseY = H*L.y + offY;
+        ctx.beginPath(); ctx.moveTo(-20,H+20);
+        const n=r.length;
+        for(let i=0;i<n;i++){
+          const x=(i/(n-1))*(W+40)-20 + offX;
+          const y=baseY - r[i]*H*L.amp + Math.sin(t*0.15+li)*2;
+          ctx.lineTo(x,y);
+        }
+        ctx.lineTo(W+20,H+20); ctx.closePath();
+        ctx.fillStyle=L.col; ctx.fill();
+        if(L.haze>0){ ctx.fillStyle=`rgba(160,190,235,${L.haze*0.25})`; ctx.fill(); }
+      });
+      if(running && !REDUCED) raf=requestAnimationFrame(draw);
+    }
+    function start(){ if(running)return; running=true; if(REDUCED){ draw(performance.now()); } else raf=requestAnimationFrame(draw); }
+    function stop(){ running=false; if(raf)cancelAnimationFrame(raf); }
+    size(); window.addEventListener("resize", ()=>{ size(); if(REDUCED) draw(performance.now()); });
+    window.addEventListener("scroll", ()=>{ scrollY=window.scrollY; }, {passive:true});
+    if(!opts.noParallax){
+      window.addEventListener("mousemove", e=>{ mx=(e.clientX/window.innerWidth)*2-1; my=(e.clientY/window.innerHeight)*2-1; }, {passive:true});
+    }
+    const io=new IntersectionObserver(es=>es.forEach(e=> e.isIntersecting?start():stop()),{threshold:0.02});
+    io.observe(canvas);
+    return {start,stop};
+  }
+  mountainScene($("#finalCanvas"));
+
+  // hero video: loop forever. The clip is web-optimized (faststart) so native loop works;
+  // we also decode the embedded copy to a seekable Blob URL and add a reload fallback.
+  const heroVideo=$("#heroVideo");
+  if(heroVideo){
+    heroVideo.muted = true; // required for autoplay
+    heroVideo.loop = true;
+    const keepPlaying = ()=>{ const p=heroVideo.play(); if(p && p.catch) p.catch(()=>{}); };
+    const src = heroVideo.getAttribute("src") || "";
+    if(src.indexOf("data:")===0){
+      try{
+        const mime=src.substring(5, src.indexOf(";")) || "video/mp4";
+        const bin=atob(src.substring(src.indexOf(",")+1));
+        const bytes=new Uint8Array(bin.length);
+        for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+        heroVideo.src=URL.createObjectURL(new Blob([bytes],{type:mime}));
+      }catch(e){ /* fall back to original src */ }
+    }
+    heroVideo.load();
+    heroVideo.addEventListener("loadeddata", keepPlaying);
+    heroVideo.addEventListener("ended", ()=>{ heroVideo.load(); keepPlaying(); }); // fallback if loop is refused
+    heroVideo.addEventListener("pause", keepPlaying);
+    document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) keepPlaying(); });
+    window.addEventListener("focus", keepPlaying);
+    keepPlaying();
+  }
+
+  /* ---------- why-section: subtle topographic lines ---------- */
+  (function topo(){
+    const canvas=$("#whyCanvas"); if(!canvas) return;
+    const ctx=canvas.getContext("2d"); let W,H,raf,running=false,t0=performance.now();
+    function size(){ const r=canvas.getBoundingClientRect(); W=r.width;H=r.height; canvas.width=W*DPR();canvas.height=H*DPR(); ctx.setTransform(DPR(),0,0,DPR(),0,0); }
+    function draw(now){ const t=(now-t0)/1000; ctx.clearRect(0,0,W,H);
+      ctx.strokeStyle="rgba(120,150,255,0.25)"; ctx.lineWidth=1;
+      for(let l=0;l<10;l++){ ctx.beginPath();
+        for(let x=0;x<=W;x+=14){ const y=H*0.1 + l*(H*0.085) + Math.sin(x*0.012 + l*0.6 + t*0.25)*18 + Math.sin(x*0.03+l)*6; if(x===0)ctx.moveTo(x,y); else ctx.lineTo(x,y); }
+        ctx.stroke(); }
+      if(running && !REDUCED) raf=requestAnimationFrame(draw);
+    }
+    function start(){ if(running)return; running=true; REDUCED?draw(performance.now()):raf=requestAnimationFrame(draw); }
+    function stop(){ running=false; if(raf)cancelAnimationFrame(raf); }
+    size(); window.addEventListener("resize",()=>{size(); if(REDUCED)draw(performance.now());});
+    new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:0.02}).observe(canvas);
+  })();
+
+  /* ---------- reveals ---------- */
+  if(HAS_GSAP && window.ScrollTrigger && !REDUCED){
+    $$(".reveal").forEach(el=>{
+      gsap.to(el,{opacity:1,y:0,duration:.9,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 88%"}});
+    });
+  } else { $$(".reveal").forEach(el=>{ el.style.opacity=1; el.style.transform="none"; }); }
+
+  /* ---------- flight route rail ---------- */
+  const railFill=$("#railFill"), railPlane=$("#railPlane"), railTrack=$("#railTrack");
+  const sections=["#what","#why","#who","#benefits","#apply","#filming","#form","#final"];
+  const stops=[];
+  sections.forEach((id,i)=>{
+    const d=document.createElement("div"); d.className="rail-stop"; d.style.top=((i/(sections.length-1))*100)+"%";
+    railTrack.appendChild(d); stops.push({el:d,id});
+  });
+  function updateRail(){
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    const p=Math.min(1, Math.max(0, window.scrollY/(max||1)));
+    const h=railTrack.clientHeight;
+    railFill.style.height=(p*h)+"px";
+    railPlane.style.top=(p*h)+"px";
+    stops.forEach((s,i)=>{ s.el.classList.toggle("done", p >= i/(sections.length-1) - 0.02); });
+  }
+  window.addEventListener("scroll", updateRail, {passive:true});
+  window.addEventListener("resize", updateRail); updateRail();
+
+  /* ---------- specialty tags (playful select) ---------- */
+  $$("#tags .tag").forEach(t=> t.addEventListener("click", ()=> t.classList.toggle("on")));
+
+  /* ---------- 60s timer demo ---------- */
+  const ringFg=$("#ringFg"), ringNum=$("#ringNum"), timerBtn=$("#timerBtn");
+  if(ringFg){
+    const R=44, C=2*Math.PI*R; ringFg.style.strokeDasharray=C; ringFg.style.strokeDashoffset=0;
+    const ar=n=> n.toLocaleString('ar-EG');
+    let iv=null, left=60;
+    function reset(){ clearInterval(iv); iv=null; left=60; ringFg.style.strokeDashoffset=0; ringNum.textContent=ar(60); timerBtn.textContent="ابدأ المؤقت"; }
+    timerBtn.addEventListener("click", ()=>{
+      if(iv){ reset(); return; }
+      timerBtn.textContent="إيقاف";
+      const t0=Date.now();
+      iv=setInterval(()=>{
+        const el=(Date.now()-t0)/1000; left=Math.max(0,60-el);
+        ringNum.textContent=ar(Math.ceil(left));
+        ringFg.style.strokeDashoffset = C*(1-left/60);
+        if(left<=0){ clearInterval(iv); iv=null; ringNum.textContent="✓"; timerBtn.textContent="جرّب مرّة ثانية"; }
+      },100);
+    });
+  }
+
+  /* ---------- video upload controls ---------- */
+  $$(".video-field").forEach(vf=>{
+    const seg=$$(".seg button", vf);
+    const drop=$(".drop", vf), urlIn=$(".url-in", vf);
+    const fileInput=$("[data-file]", vf), fname=$("[data-fname]", vf);
+    seg.forEach(b=> b.addEventListener("click", ()=>{
+      seg.forEach(x=>x.classList.remove("on")); b.classList.add("on");
+      const mode=b.dataset.mode;
+      drop.style.display = mode==="file" ? "flex" : "none";
+      urlIn.style.display = mode==="url" ? "block" : "none";
+    }));
+    // VIDEO UPLOAD: local read only — wire to your upload service here.
+    fileInput.addEventListener("change", ()=>{ if(fileInput.files[0]) fname.textContent=fileInput.files[0].name; });
+    ["dragover","dragenter"].forEach(ev=> drop.addEventListener(ev, e=>{ e.preventDefault(); drop.classList.add("drag"); }));
+    ["dragleave","drop"].forEach(ev=> drop.addEventListener(ev, e=>{ e.preventDefault(); drop.classList.remove("drag"); }));
+    drop.addEventListener("drop", e=>{ const f=e.dataTransfer.files[0]; if(f){ fileInput.files=e.dataTransfer.files; fname.textContent=f.name; } });
+  });
+
+  /* ---------- FORM SUBMIT (front-end only) ---------- */
+  const form=$("#appForm"), success=$("#success");
+  function setErr(key,msg){ const e=$(`.err[data-for="${key}"]`); if(e) e.textContent=msg||""; }
+  function videoOK(n){
+    const vf=$(`.video-field[data-video="${n}"]`);
+    const mode=$(".seg button.on", vf).dataset.mode;
+    if(mode==="file") return !!$("[data-file]",vf).files[0];
+    return ($(".url-in",vf).value||"").trim().length>5;
+  }
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+    let ok=true;
+    const req=[["f-name","name"],["f-phone","phone"],["f-email","email"],["f-city","city"],["f-major","major"]];
+    req.forEach(([id,k])=>{ const v=$("#"+id).value.trim(); if(!v){ setErr(id,"هذا الحقل مطلوب"); ok=false; } else setErr(id,""); });
+    const email=$("#f-email").value.trim();
+    if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setErr("f-email","تأكّد من البريد الإلكتروني"); ok=false; }
+    const phone=$("#f-phone").value.trim();
+    if(phone && phone.replace(/\D/g,'').length<7){ setErr("f-phone","تأكّد من رقم الهاتف"); ok=false; }
+    if(!videoOK(1)){ setErr("video1","ارفع الفيديو الأول أو ضع رابطه"); ok=false; } else setErr("video1","");
+    if(!videoOK(2)){ setErr("video2","ارفع الفيديو الثاني أو ضع رابطه"); ok=false; } else setErr("video2","");
+
+    if(!ok){
+      const firstErr=$(".err:not(:empty)"); if(firstErr) firstErr.closest(".field,.video-field").scrollIntoView({behavior:"smooth",block:"center"});
+      return;
+    }
+
+    /*  «اربط الباك-إند هنا»
+        Replace the block below with your real submission, e.g.:
+        const data = new FormData(form);
+        await fetch("/api/fellowship-apply", { method:"POST", body:data });
+        Handle the two video files (data-file="1" / "2") with your upload/storage service.
+    */
+    $("#passName").textContent = $("#f-name").value.trim() || "—";
+    form.style.display="none";
+    success.classList.add("show");
+    success.scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
+})();
+</script>
+</body>
+</html>

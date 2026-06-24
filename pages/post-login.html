@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تسجيل الدخول · بوست®</title>
+<meta name="description" content="دخول الفريق والشركاء إلى نظام بوست الداخلي.">
+<script>
+  if (localStorage.getItem("meswedaAccess") !== "granted") {
+    if (localStorage.getItem("mesweda_auth") === "1") {
+      localStorage.setItem("meswedaAccess", "granted");
+    } else {
+      window.location.href = "../login.html";
+    }
+  }
+</script>
+<link rel="stylesheet" href="../assets/post/css/tokens.css">
+<link rel="stylesheet" href="../assets/post/css/auth.css">
+</head>
+<body class="auth-body">
+
+<div class="auth-glow"></div>
+<div class="auth-ripple"></div>
+
+<div class="auth-card">
+  <img src="../assets/post/images/logo-white-trim.png" alt="بوست" class="auth-card__logo">
+  <div class="auth-card__head">
+    <h1 class="auth-card__title">دخول الفريق والشركاء</h1>
+    <p class="auth-card__subtitle">Post Campaign &amp; Production OS · v0.5</p>
+  </div>
+
+  <form class="auth-card__form" id="login-form">
+    <label class="auth-card__label" for="access-code">أدخل رمز الدخول</label>
+    <span class="auth-card__input-wrap">
+      <input id="access-code" name="access-code" type="text" autocomplete="off" autocapitalize="off" placeholder="POST-XXXX-XXXX" required>
+    </span>
+    <p class="auth-card__error" id="login-error"></p>
+    <button class="btn btn--primary btn--lg btn--block" type="submit">افتح الاستوديو</button>
+  </form>
+
+  <p class="auth-card__hint">
+    management → POST-MGMT-2026<br>
+    team · staff → POST-TEAM-2026<br>
+    partners · staff → POST-PARTNER-2026
+  </p>
+
+  <a class="auth-card__back" href="post.html">رجوع للموقع</a>
+</div>
+
+<script src="../assets/post/js/post-login.js"></script>
+</body>
+</html>

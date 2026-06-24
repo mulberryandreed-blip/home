@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post. — Campaign &amp; Production OS</title>
+<script>
+  if (localStorage.getItem("meswedaAccess") !== "granted") {
+    if (localStorage.getItem("mesweda_auth") === "1") {
+      localStorage.setItem("meswedaAccess", "granted");
+    } else {
+      window.location.href = "../login.html";
+    }
+  }
+</script>
+<link rel="stylesheet" href="../assets/post/css/tokens.css">
+<link rel="stylesheet" href="../assets/post/css/dashboard.css">
+</head>
+<body class="pos-root">
+
+<div class="shell">
+  <aside class="side">
+    <div class="side-top">
+      <div class="side-mark">Post<span class="dot">.</span></div>
+      <div class="side-sub">Production OS</div>
+    </div>
+    <nav class="nav" id="side-nav"></nav>
+    <div class="side-foot">
+      <div class="side-role" id="side-role"></div>
+      <button class="side-out" id="sign-out">Sign out</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="tc"><span class="rec"></span> REC · PROD.OS · 22 JUN 2026 · <span id="tc-role"></span></div>
+      <div class="tools">
+        <button class="edit-toggle" id="edit-toggle" style="display:none;">Edit</button>
+        <div class="toggle" role="group" aria-label="View density">
+          <button id="view-simple" class="on">Simple</button>
+          <button id="view-detailed">Detailed</button>
+        </div>
+      </div>
+    </div>
+    <div class="edit-banner" id="edit-banner" style="display:none;">Edit mode on · click any underlined field to change it. Scores and checklist statuses update live.</div>
+    <div class="content" id="content"></div>
+  </div>
+</div>
+
+<script src="../assets/post/js/team-data.js"></script>
+<script src="../assets/post/js/team.js"></script>
+</body>
+</html>

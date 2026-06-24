@@ -14,7 +14,11 @@
 
 <script>
   if (localStorage.getItem("meswedaAccess") !== "granted") {
-    window.location.href = "../login.html";
+    if (localStorage.getItem("mesweda_auth") === "1") {
+      localStorage.setItem("meswedaAccess", "granted");
+    } else {
+      window.location.href = "../login.html";
+    }
   }
 </script>
 

@@ -7,7 +7,11 @@
 <meta name="description" content="A demonstration of how Post manages client information, project allocation, task assignment, documentation, and reporting.">
 <script>
   if (localStorage.getItem("meswedaAccess") !== "granted") {
-    window.location.href = "../login.html";
+    if (localStorage.getItem("mesweda_auth") === "1") {
+      localStorage.setItem("meswedaAccess", "granted");
+    } else {
+      window.location.href = "../login.html";
+    }
   }
 </script>
 <link rel="stylesheet" href="../assets/post/css/tokens.css">
